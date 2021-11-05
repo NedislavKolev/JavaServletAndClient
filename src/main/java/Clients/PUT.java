@@ -35,7 +35,7 @@ public class PUT {
             osw.flush();
         }
         System.out.println("Successfully sent");
-
+        System.out.println("HTTP Response Code:");
         System.err.println(urlConnection.getResponseCode());
         //close the connection
         osw.close();
