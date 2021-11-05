@@ -12,9 +12,6 @@ public class GetAndPut extends HttpServlet {
 
     public void init() {}
 
-    //Недко погледни тука сървис метода, не знам дали така трябва да стане
-    //клиентът ни работи добре, но тук има проблем
-    //Не знае кога да изпълни ПОСТ метода
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String req_method = req.getMethod().trim();
