@@ -36,13 +36,10 @@ public class PUT {
         }
         System.out.println("Successfully sent");
         System.out.println("HTTP Response Code:");
+        //HTTP response code
         System.err.println(urlConnection.getResponseCode());
         //close the connection
         osw.close();
-
-
-
-
     }
 }
 

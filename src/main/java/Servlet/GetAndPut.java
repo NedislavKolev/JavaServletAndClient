@@ -1,11 +1,7 @@
 package Servlet;
 
 import java.io.*;
-import java.util.stream.Collectors;
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
