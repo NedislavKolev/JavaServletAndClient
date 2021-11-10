@@ -1,5 +1,9 @@
 package Servlet;
 
+
+
+import MaNik.File.*;
+
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -30,6 +34,7 @@ public class GetAndPut extends HttpServlet {
         //set the content type
         response.setContentType("application/json");
 
+//        ReadFile readFile = new ReadFile();
 
         //specify the file name
         File file = new File("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
@@ -60,19 +65,23 @@ public class GetAndPut extends HttpServlet {
         byte []b = bodyStream.readAllBytes();
         String toWrite = new String(b);
 
-        try {
-            //Save the incoming data to a file
-            FileWriter putWriter = new FileWriter("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
-            putWriter.write(toWrite);
+        FileRead fileRead = new FileRead();
+        fileRead.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
 
-            //close the connection
-            putWriter.close();
-            System.out.println("Received file from client: \n" + toWrite);
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+
+//        try {
+//            //Save the incoming data to a file
+//            FileWriter putWriter = new FileWriter("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
+//            putWriter.write(toWrite);
+//
+//            //close the connection
+//            putWriter.close();
+//            System.out.println("Received file from client: \n" + toWrite);
+//            System.out.println("Successfully wrote to the file.");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
     }
 
     public void destroy() {
