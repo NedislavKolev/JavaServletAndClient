@@ -32,25 +32,27 @@ public class GetAndPut extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //set the content type
-        response.setContentType("application/json");
+        response.setContentType("application/xml");
 
-//        ReadFile readFile = new ReadFile();
+        FileRead fileRead = new FileRead();
+        PrintWriter out = response.getWriter();
+        out.println(fileRead);
 
-        //specify the file name
-        File file = new File("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
-
-        //read the content of the file
-        try (BufferedReader br = new BufferedReader(new FileReader(file)))
-        {
-            String line;
-            while ((line = br.readLine()) != null) {
-                //show the content on browser(this is a server response to the client)
-                PrintWriter out = response.getWriter();
-                out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        //specify the file name
+//        File file = new File("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
+//
+//        //read the content of the file
+//        try (BufferedReader br = new BufferedReader(new FileReader(file)))
+//        {
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                //show the content on browser(this is a server response to the client)
+//                PrintWriter out = response.getWriter();
+//                out.println(line);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
@@ -67,23 +69,9 @@ public class GetAndPut extends HttpServlet {
 
         FileRead fileRead = new FileRead();
         fileRead.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
-
-
-//        try {
-//            //Save the incoming data to a file
-//            FileWriter putWriter = new FileWriter("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
-//            putWriter.write(toWrite);
-//
-//            //close the connection
-//            putWriter.close();
-//            System.out.println("Received file from client: \n" + toWrite);
-//            System.out.println("Successfully wrote to the file.");
-//        } catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
     }
 
     public void destroy() {
     }
+
 }
