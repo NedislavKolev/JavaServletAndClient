@@ -38,21 +38,6 @@ public class GetAndPut extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println(fileRead);
 
-//        //specify the file name
-//        File file = new File("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
-//
-//        //read the content of the file
-//        try (BufferedReader br = new BufferedReader(new FileReader(file)))
-//        {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                //show the content on browser(this is a server response to the client)
-//                PrintWriter out = response.getWriter();
-//                out.println(line);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
 
