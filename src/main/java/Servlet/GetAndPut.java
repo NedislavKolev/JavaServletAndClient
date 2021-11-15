@@ -1,11 +1,6 @@
 package Servlet;
 
-
-
-
-
-import MaNik.File.FR;
-
+import MaNik.File.MNFileLib;
 
 import java.io.*;
 import javax.servlet.ServletException;
@@ -43,7 +38,7 @@ public class GetAndPut extends HttpServlet {
         response.addHeader("Allow","GET");
         response.setContentType("application/xml");
 
-        FR fileRead = new FR();
+        MNFileLib fileRead = new MNFileLib();
         String toPrint = fileRead.readFile("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
         PrintWriter out = response.getWriter();
         out.println(toPrint);
@@ -63,7 +58,7 @@ public class GetAndPut extends HttpServlet {
         byte []b = bodyStream.readAllBytes();
         String toWrite = new String(b);
 
-        FR fileRead = new FR();
+        MNFileLib fileRead = new MNFileLib();
         fileRead.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
         System.out.println(toWrite);
     }
