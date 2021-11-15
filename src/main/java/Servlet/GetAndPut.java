@@ -8,11 +8,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 
-
-//TODO: Raboti PUT Request prez klienta
-// GET NE raboti prez klienta i browser (HTTP Error 500)
-
-
 @WebServlet(name = "helloServlet", value = "/servlet")
 public class GetAndPut extends HttpServlet {
 
@@ -58,8 +53,8 @@ public class GetAndPut extends HttpServlet {
         byte []b = bodyStream.readAllBytes();
         String toWrite = new String(b);
 
-        MNFileLib fileRead = new MNFileLib();
-        fileRead.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
+        MNFileLib fileWrite = new MNFileLib();
+        fileWrite.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
         System.out.println(toWrite);
     }
 
