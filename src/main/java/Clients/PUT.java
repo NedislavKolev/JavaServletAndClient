@@ -6,15 +6,24 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Client side
+ * Sendin PUT request
+ */
 public class PUT {
 
     public static void main(String[] args) throws IOException {
-
-        postMethod();
+        PUT put = new PUT();
+        put.postMethod();
     }
 
-    public static void postMethod() throws IOException {
-        URL  url = new URL("http://localhost:8090/servlet");
+    /**
+     * Sending PUT request
+     * @throws IOException
+     */
+    public void postMethod() throws IOException {
+        //Set the URL and open the connection
+        URL  url = new URL("http://localhost:8083/servlet");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("PUT");
@@ -26,7 +35,7 @@ public class PUT {
 
         OutputStreamWriter osw = new OutputStreamWriter(urlConnection.getOutputStream());
 
-        FileInputStream fis = new FileInputStream("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\clientfile.xml");
+        FileInputStream fis = new FileInputStream("D:\\Manik\\NedkoServlet\\src\\main\\java\\Files\\clientfile.xml");
 
         // reads a byte at a time, if it reached end of the file, returns -1
         int content;
