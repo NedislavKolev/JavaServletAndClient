@@ -1,13 +1,18 @@
 package Servlet;
 
 import MaNik.File.MNFileLib;
-
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-//URL Pattern for the servlet
+/**
+ * URL Pattern for the servlet
+ * Initialises the servlet
+ * Chooses which type of request to handle
+ * Handling methods for PUT and GET requests
+ * Destroying the session
+ */
 @WebServlet(name = "helloServlet", value = "/servlet")
 public class GetAndPut extends HttpServlet {
 
@@ -15,8 +20,15 @@ public class GetAndPut extends HttpServlet {
     //Initializing the servlet
     public void init() {}
 
+    /**
+     * Chooses which type of request to handle
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String req_method = req.getMethod().trim();
 
         System.out.println(req_method);
@@ -29,6 +41,12 @@ public class GetAndPut extends HttpServlet {
         }
     }
 
+    /**
+     * Handling GET request
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Added Allow header for GET Request
         response.addHeader("Allow","GET");
@@ -46,7 +64,12 @@ public class GetAndPut extends HttpServlet {
 
     }
 
-
+    /**
+     * Handling PUT request
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Added Allow header for PUT Request
         response.addHeader("Allow","PUT");
@@ -65,6 +88,9 @@ public class GetAndPut extends HttpServlet {
         System.out.println(toWrite);
     }
 
+    /**
+     * Destroying the session
+     */
     public void destroy() {
     }
 
