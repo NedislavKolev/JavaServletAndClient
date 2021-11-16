@@ -2,6 +2,7 @@
 Build suing Maven and Apache Tomcat
 
 ## Usage
+Before using download the [MaNikExternalLibrary](https://github.com/NedislavKolev/FileLibrary.git)
 
 **Start the servlet by running Tomcat**
 
