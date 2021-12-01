@@ -1,5 +1,6 @@
 package Servlet;
 
+import Config.Config;
 import MaNik.File.MNFileLib;
 import java.io.*;
 import javax.servlet.ServletException;
@@ -56,7 +57,7 @@ public class GetAndPut extends HttpServlet {
         //Using the MaNik external library to read the file
         MNFileLib fileRead = new MNFileLib();
         //Using readFile method do read the file
-        String toPrint = fileRead.readFile("D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
+        String toPrint = fileRead.readFile(Config.getInstance().getFile_path());
         //Printing the read file
         PrintWriter out = response.getWriter();
         out.println(toPrint);
@@ -83,7 +84,7 @@ public class GetAndPut extends HttpServlet {
         //Using the MaNik external library to write the file
         MNFileLib fileWrite = new MNFileLib();
         //Using writeToFile method do read the file
-        fileWrite.writeToFile(toWrite, "D:\\Java\\JavaServletAndClient\\src\\main\\java\\Files\\servletfile.xml");
+        fileWrite.writeToFile(toWrite, Config.getInstance().getFile_path());
         //Printing the written file
         System.out.println(toWrite);
     }

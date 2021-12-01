@@ -1,5 +1,7 @@
 package Clients;
 
+import Config.Config;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -23,7 +25,7 @@ public class PUT {
      */
     public void postMethod() throws IOException {
         //Set the URL and open the connection
-        URL  url = new URL("http://localhost:8083/servlet");
+        URL  url = new URL(Config.getInstance().getURL());
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("PUT");
@@ -35,7 +37,7 @@ public class PUT {
 
         OutputStreamWriter osw = new OutputStreamWriter(urlConnection.getOutputStream());
 
-        FileInputStream fis = new FileInputStream("D:\\Manik\\NedkoServlet\\src\\main\\java\\Files\\clientfile.xml");
+        FileInputStream fis = new FileInputStream(Config.getInstance().getClient_file());
 
         // reads a byte at a time, if it reached end of the file, returns -1
         int content;
